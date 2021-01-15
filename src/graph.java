@@ -63,8 +63,6 @@ public class graph {
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
                 vertices.put(data[2],new account(data[0],data[1],data[2],data[3]));
                 accountkeys[accountnum++]=data[2];
-                vertices.put(data[2],new account(data[0],data[1],data[2],data[3]));
-                accountkeys[accountnum++] = data[2];
             }
             System.out.println("Done");
         } catch (FileNotFoundException e) {
