@@ -14,4 +14,16 @@ public class people  extends vertex{
         this.birthplace=birthplace;
         this.workplace=workplace;
     }
+
+    @Override
+    public String toString() {
+        return "people{" +
+                "firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", ssn='" + ssn + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", birthplace='" + birthplace + '\'' +
+                ", workplace='" + workplace + '\'' +
+                '}';
+    }
 }

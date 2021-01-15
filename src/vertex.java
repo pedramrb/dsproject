@@ -1,4 +1,5 @@
 public class vertex {
+    /*
     String ssn;
     String price;
     String postal_code;
@@ -12,9 +13,11 @@ public class vertex {
     String account_id;
     String number;
     String operator;
-    String firstname;
+    String firstname="dsfg";
     String lastname;
     String birthday;
     String birthplace;
     String workplace;
+
+     */
 }

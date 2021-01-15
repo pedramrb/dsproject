@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class print_graph {
@@ -8,11 +9,12 @@ public class print_graph {
         this.g=g;
         edges=g.getedges();
         vertices=g.getvertices();
+        printpeople();
     }
     private void printpeople(){
-        String []keys=g.getPeoplekeys();
-
-
-
+        ArrayList<String> keys=g.getPeoplekeys();
+        for(String x:keys){
+            System.out.println(vertices.get(x).toString());
+        }
     }
 }

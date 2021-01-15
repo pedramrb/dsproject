@@ -1,13 +1,13 @@
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class call extends edge {
     String callid;
-    LocalDate date;
+    LocalDateTime date;
     String duration;
     public call(vertex from , vertex to , String callid , String date , String duration ){
         super(from,to);
         this.callid=callid;
-        this.date=LocalDate.parse(date);
+        this.date=LocalDateTime.parse(date);
         this.duration=duration;
     }
 }

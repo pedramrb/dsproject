@@ -16,11 +16,15 @@ public class phase_one {
             System.out.println(s.replaceAll("s",""));
         }
 
-         */
+         *//*
 
         LocalDate x=LocalDate.parse("1991-11-24");
         LocalDate y=LocalDate.parse("1993-11-24");
         //System.out.println(Period.between(x,LocalDate.now()).getYears());
         System.out.println(Math.abs(Period.between(y,x).getYears()));
+
+       */
+        graph g=new graph();
+        new print_graph(g);
     }
 }
