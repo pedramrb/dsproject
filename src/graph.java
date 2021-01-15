@@ -28,6 +28,7 @@ public class graph {
         vertices=new HashMap<String, vertex>();
         edges=new HashMap<String, edge>();
 
+        readpeoples();
         readaccounts();
         readcars();
         readhomes();
@@ -38,6 +39,21 @@ public class graph {
         readrelationships();
         System.out.println(this.vertex_numbers());
     }
+    private void readpeoples(){
+        File f = new File("dataSample/people.csv");
+        try{
+            Scanner scan = new Scanner(f);
+            scan.nextLine();
+            while(scan.hasNextLine()){
+                String data[] = scan.nextLine().replaceAll("\"" , "").split(",");
+                vertices.put(data[2] , new people(data[0],data[1],data[2],data[3] , data[4] , data[5]));
+                peoplekeys[peoplenum++] = data[2];
+            }
+        }
+        catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+    }
     private void readaccounts(){
         File f=new File("dataSample/accounts.csv");
         try{
@@ -47,6 +63,8 @@ public class graph {
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
                 vertices.put(data[2],new account(data[0],data[1],data[2],data[3]));
                 accountkeys[accountnum++]=data[2];
+                vertices.put(data[2],new account(data[0],data[1],data[2],data[3]));
+                accountkeys[accountnum++] = data[2];
             }
             System.out.println("Done");
         } catch (FileNotFoundException e) {
