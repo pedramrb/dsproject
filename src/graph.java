@@ -4,7 +4,11 @@ import java.util.Scanner;
 
 public class graph {
     HashMap <String,vertex> vertices;
-
+    String []carkeys;
+    String []phonekeys;
+    String []homekeys;
+    String []peoplekeys;
+    String []accountkeys;
     HashMap <String,edge> edges;
 
     public graph(){
