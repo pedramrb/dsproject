@@ -3,8 +3,8 @@ public class call extends edge {
     String date;
     String duration;
     public call(String key,String value,vertex from , vertex to ,String callid , String date , String duration ){
-        this.callid=callid;
-        this.date=date;
+        callid=callid;
+        date=date;
         this.duration=duration;
         this.key=key;
         this.value=value;
