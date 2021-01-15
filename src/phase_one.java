@@ -6,8 +6,10 @@ public class phase_one {
         File f=new File("dataSample");
         File []subfiles=f.getAbsoluteFile().listFiles();
         for(File x:subfiles){
+            String s=x.getName();
             System.out.print(x.getPath()+"\t");
-            System.out.println(x.getName().replaceAll(".csv",""));
+            s=s.replaceAll(".csv","");
+            System.out.println(s.replaceAll("s",""));
         }
     }
 }
