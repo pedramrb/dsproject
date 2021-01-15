@@ -11,11 +11,14 @@ public class graph {
         vertices=new HashMap<String, vertex>();
         edges=new HashMap<String, edge>();
 
-
         readaccounts();
         readcars();
         readhomes();
         readphones();
+        readcalls();
+        readownerships();
+        readtransactions();
+        readrelationships();
         System.out.println(this.vertex_numbers());
     }
     private void readaccounts(){
@@ -36,14 +39,6 @@ public class graph {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-    }
-
-
-    public HashMap getedges(){
-        return edges;
-    }
-    public HashMap getvertices(){
-        return vertices;
     }
     private void readcars(){
         File f = new File("dataSample/cars.csv");
@@ -87,6 +82,69 @@ public class graph {
         catch (FileNotFoundException e){
             e.printStackTrace();
         }
+    }
+    private void readcalls(){
+        File f=new File("dataSample/call.csv");
+        try{
+            Scanner scan = new Scanner(f);
+            scan.nextLine();
+            while (scan.hasNextLine()){
+                String data[]=scan.nextLine().replaceAll("\"","").split(",");
+                edges.put(data[2] , new call(data[0] , data[1] , data[2] , data[3] , data[4]));
+            }
+        }
+        catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+    private void readownerships(){
+        File f=new File("dataSample/ownership.csv");
+        try{
+            Scanner scan = new Scanner(f);
+            scan.nextLine();
+            while (scan.hasNextLine()){
+                String data[]=scan.nextLine().replaceAll("\"","").split(",");
+                edges.put(data[2] , new ownership(data[0] , data[1] , data[2] , data[3] , data[4]));
+            }
+        }
+        catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+    private void readtransactions(){
+        File f=new File("dataSample/transactions.csv");
+        try{
+            Scanner scan = new Scanner(f);
+            scan.nextLine();
+            while (scan.hasNextLine()){
+                String data[]=scan.nextLine().replaceAll("\"","").split(",");
+                edges.put(data[2] , new transaction(data[0] , data[1] , data[2] , data[3] , data[4]));
+            }
+        }
+        catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+    private void readrelationships(){
+        File f=new File("dataSample/relationships.csv");
+        try{
+            Scanner scan = new Scanner(f);
+            scan.nextLine();
+            while (scan.hasNextLine()){
+                String data[]=scan.nextLine().replaceAll("\"","").split(",");
+                edges.put(data[2] , new relationship(data[0] , data[1] , data[2] , data[3]));
+            }
+        }
+        catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+
+    public HashMap getedges(){
+        return edges;
+    }
+    public HashMap getvertices(){
+        return vertices;
     }
     public int vertex_numbers(){
         return vertices.size();
