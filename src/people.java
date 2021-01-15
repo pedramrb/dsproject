@@ -5,8 +5,8 @@ public class people  extends vertex{
     String birthday;
     String birthplace;
     String workaddress;
-    public people(String key,String value,String firstname,String lastname,String ssn,String birthday,String birthplace,String workaddress){
-        super(key,value);
+    public people(String firstname,String lastname,String ssn,String birthday,String birthplace,String workaddress){
+
         this.firstname=firstname;
         this.lastname=lastname;
         this.ssn=ssn;

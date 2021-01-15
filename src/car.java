@@ -4,8 +4,8 @@ String ssn;
 String model;
 String color;
 
-    public car(String key, String value , String plate , String ssn , String model , String color) {
-        super(key, value);
+    public car( String plate , String ssn , String model , String color) {
+
         this.plate = plate;
         this.ssn = ssn;
         this.model = model;

@@ -5,8 +5,8 @@ String postal_code;
 String size;
 String address;
 
-    public home(String key, String value, String ssn , String price , String postal_code , String size , String address) {
-        super(key, value);
+    public home( String ssn , String price , String postal_code , String size , String address) {
+
         this.ssn = ssn;
         this.price = price;
         this.postal_code = postal_code;

@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class phase_one {
     public static void main(String[] args) {
+        /*
         File f=new File("dataSample");
         File []subfiles=f.getAbsoluteFile().listFiles();
         for(File x:subfiles){
@@ -11,5 +12,9 @@ public class phase_one {
             s=s.replaceAll(".csv","");
             System.out.println(s.replaceAll("s",""));
         }
+
+         */
+
+        graph gr=new graph();
     }
 }
