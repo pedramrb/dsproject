@@ -1,4 +1,7 @@
 import java.io.*;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Scanner;
 
 public class phase_one {
@@ -15,6 +18,9 @@ public class phase_one {
 
          */
 
-        graph gr=new graph();
+        LocalDate x=LocalDate.parse("1991-11-24");
+        LocalDate y=LocalDate.parse("1993-11-24");
+        //System.out.println(Period.between(x,LocalDate.now()).getYears());
+        System.out.println(Math.abs(Period.between(y,x).getYears()));
     }
 }

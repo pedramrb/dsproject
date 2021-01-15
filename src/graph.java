@@ -3,9 +3,9 @@ import java.io.*;
 import java.util.Scanner;
 
 public class graph {
-    HashMap <String,vertex> vertices;
+    private HashMap <String,vertex> vertices;
 
-    HashMap <String,edge> edges;
+    private HashMap <String,edge> edges;
 
     public graph(){
         vertices=new HashMap<String, vertex>();
@@ -35,6 +35,13 @@ public class graph {
         }
     }
 
+
+    public HashMap getedges(){
+        return edges;
+    }
+    public HashMap getvertices(){
+        return vertices;
+    }
     public int vertex_numbers(){
         return vertices.size();
     }

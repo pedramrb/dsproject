@@ -1,9 +1,11 @@
+import java.time.LocalDate;
+
 public class relationship extends edge{
     String relation;
-    String date;
+    LocalDate date;
     public relationship(people from,people to,String relation,String date){
         super(from,to);
         this.relation=relation;
-        this.date=date;
+        this.date=LocalDate.parse(date);
     }
 }
