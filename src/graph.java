@@ -34,6 +34,7 @@ public class graph {
             e.printStackTrace();
         }
     }
+
     public int vertex_numbers(){
         return vertices.size();
     }
