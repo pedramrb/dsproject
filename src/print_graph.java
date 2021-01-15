@@ -52,25 +52,25 @@ public class print_graph {
     private void printownerships(){
         ArrayList<String> keys=g.getOwnershipkeys();
         for(String x:keys){
-            System.out.println(vertices.get(x).toString());
+            System.out.println(edges.get(x).toString());
         }
     }
     private void printtransactions(){
         ArrayList<String> keys=g.getTransactionkeys();
         for(String x:keys){
-            System.out.println(vertices.get(x).toString());
+            System.out.println(edges.get(x).toString());
         }
     }
     private void printcalls(){
         ArrayList<String> keys=g.getCallkeys();
         for(String x:keys){
-            System.out.println("\""+x+"\"");//vertices.get(x).toString());
+            System.out.println(edges.get(x).toString());
         }
     }
     private void printrelationships(){
         ArrayList<String> keys=g.getRelationshipkeys();
         for(String x:keys){
-            System.out.println(vertices.get(x).toString());
+            System.out.println(edges.get(x).toString());
         }
     }
 }

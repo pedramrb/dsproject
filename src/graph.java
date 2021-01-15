@@ -50,7 +50,7 @@ public class graph {
         readownerships();
         readtransactions();
         readrelationships();
-        System.out.println(this.vertices.get("974208").toString());
+        //System.out.println(this.vertices.get("974208").toString());
     }
 
 
@@ -178,7 +178,7 @@ public class graph {
             scan.nextLine();
             while (scan.hasNextLine()){
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
-                System.out.println(data[0]+" "+data[1]+" \""+data[2]+"\" "+data[3]+" "+data[4]);
+                //System.out.println(data[0]+" "+data[1]+" \""+data[2]+"\" "+data[3]+" "+data[4]);
                 edges.put(data[2] , new call((vertex)vertices.get(data[0]), (vertex)vertices.get(data[1]) , data[2] , data[3] , data[4]));
                 //callkeys[callnum++]=data[2];
                 callnum++;
