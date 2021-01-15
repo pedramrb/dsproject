@@ -3,13 +3,26 @@ import java.io.*;
 import java.util.Scanner;
 
 public class graph {
-    HashMap <String,vertex> vertices;
-    String []carkeys;
-    String []phonekeys;
-    String []homekeys;
-    String []peoplekeys;
-    String []accountkeys;
-    HashMap <String,edge> edges;
+    private HashMap <String,vertex> vertices;
+    private String []carkeys;
+    private int carnum=0;
+    private String []phonekeys;
+    private int phonenum=0;
+    private String []homekeys;
+    private int homenum=0;
+    private String []peoplekeys;
+    private int peoplenum=0;
+    private String []accountkeys;
+    private int accountnum=0;
+    private String []ownershipkeys;
+    private int ownershipnum=0;
+    private String []transactionkeys;
+    private int transactionnum=0;
+    private String []callkeys;
+    private int callnum=0;
+    private String []relationshipkeys;
+    private int relationshipnum=0;
+    private HashMap <String,edge> edges;
 
     public graph(){
         vertices=new HashMap<String, vertex>();
@@ -32,12 +45,8 @@ public class graph {
             scan.nextLine();
             while(scan.hasNextLine()){
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
-                vertices.put(data[2],new account(data[0],data[1],data[2],data[3]));/*
-                for(int i=0;i<data.length;i++){
-                    System.out.print("data["+i+"]= "+data[i]+"\t");
-                }
-                System.out.println();
-                */
+                vertices.put(data[2],new account(data[0],data[1],data[2],data[3]));
+                accountkeys[accountnum++]=data[2];
             }
             System.out.println("Done");
         } catch (FileNotFoundException e) {
@@ -52,6 +61,7 @@ public class graph {
             while(scan.hasNextLine()){
                 String data[] = scan.nextLine().replaceAll("\"" , "").split(",");
                 vertices.put(data[0] , new car(data[0],data[1],data[2],data[3]));
+                carkeys[carnum++]=data[0];
             }
             System.out.println("Done");
         }
@@ -67,6 +77,7 @@ public class graph {
             while (scan.hasNextLine()){
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
                 vertices.put(data[2] , new home(data[0] , data[1] , data[2], data[3] , data[4]));
+                homekeys[homenum++]=data[2];
             }
         }
         catch (FileNotFoundException e){
@@ -81,6 +92,7 @@ public class graph {
             while (scan.hasNextLine()){
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
                 vertices.put(data[1] , new phone(data[0] , data[1] , data[2]));
+                phonekeys[phonenum++]=data[1];
             }
         }
         catch (FileNotFoundException e){
@@ -95,6 +107,7 @@ public class graph {
             while (scan.hasNextLine()){
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
                 edges.put(data[2] , new call(vertices.get(data[0]), vertices.get(data[1]) , data[2] , data[3] , data[4]));
+                callkeys[callnum++]=data[2];
             }
         }
         catch (FileNotFoundException e){
@@ -109,6 +122,7 @@ public class graph {
             while (scan.hasNextLine()){
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
                 edges.put(data[2] , new ownership(vertices.get(data[0]), vertices.get(data[1]) , data[2] , data[3] , data[4]));
+                ownershipkeys[ownershipnum++]=data[2];
             }
         }
         catch (FileNotFoundException e){
@@ -123,6 +137,7 @@ public class graph {
             while (scan.hasNextLine()){
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
                 edges.put(data[2] , new transaction(vertices.get(data[0]), vertices.get(data[1]) , data[2] , data[3] , data[4]));
+                transactionkeys[transactionnum++]=data[2];
             }
         }
         catch (FileNotFoundException e){
@@ -137,6 +152,7 @@ public class graph {
             while (scan.hasNextLine()){
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
                 edges.put(data[2] , new relationship(vertices.get(data[0]), vertices.get(data[1]) , data[2] , data[3]));
+                relationshipkeys[relationshipnum++]=data[2];
             }
         }
         catch (FileNotFoundException e){
