@@ -10,6 +10,9 @@ public class print_graph {
         vertices=g.getvertices();
     }
     private void printpeople(){
+        String []keys=g.getPeoplekeys();
+
+
 
     }
 }
