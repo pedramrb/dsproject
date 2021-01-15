@@ -50,7 +50,7 @@ public class graph {
         readownerships();
         readtransactions();
         readrelationships();
-        System.out.println(this.vertices.get("974208").toString());
+        System.out.println(this.edges.get("974208").toString());
     }
 
 
@@ -131,7 +131,7 @@ public class graph {
                 String data[] = scan.nextLine().replaceAll("\"" , "").split(",");
                 vertices.put(data[0] , new car(data[0],data[1],data[2],data[3]));
                 //carkeys[carnum++]=data[0];
-                carkeys.add(data[2]);
+                carkeys.add(data[0]);
             }
             //System.out.println("Done");
         }
@@ -164,7 +164,7 @@ public class graph {
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
                 vertices.put(data[1] , new phone(data[0] , data[1] , data[2]));
                 //phonekeys[phonenum++]=data[1];
-                phonekeys.add(data[2]);
+                phonekeys.add(data[1]);
             }
         }
         catch (FileNotFoundException e){
