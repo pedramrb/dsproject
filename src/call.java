@@ -10,4 +10,15 @@ public class call extends edge {
         this.date=LocalDateTime.parse(date);
         this.duration=duration;
     }
+
+    @Override
+    public String toString() {
+        return "call{" +
+                "callid='" + callid + '\'' +
+                ", date=" + date +
+                ", duration='" + duration + '\'' +
+                ", from=" + from +
+                ", to=" + to +
+                '}';
+    }
 }

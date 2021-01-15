@@ -50,7 +50,7 @@ public class graph {
         readownerships();
         readtransactions();
         readrelationships();
-        System.out.println(this.vertex_numbers());
+        System.out.println(this.vertices.get("974208").toString());
     }
 
 
@@ -117,7 +117,7 @@ public class graph {
                 //accountkeys[accountnum++]=data[2];
                 accountkeys.add(data[2]);
             }
-            System.out.println("Done");
+            //System.out.println("Done");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -133,7 +133,7 @@ public class graph {
                 //carkeys[carnum++]=data[0];
                 carkeys.add(data[2]);
             }
-            System.out.println("Done");
+            //System.out.println("Done");
         }
         catch (FileNotFoundException e){
             e.printStackTrace();
@@ -178,8 +178,10 @@ public class graph {
             scan.nextLine();
             while (scan.hasNextLine()){
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
-                edges.put(data[2] , new call(vertices.get(data[0]), vertices.get(data[1]) , data[2] , data[3] , data[4]));
+                System.out.println(data[0]+" "+data[1]+" \""+data[2]+"\" "+data[3]+" "+data[4]);
+                edges.put(data[2] , new call((vertex)vertices.get(data[0]), (vertex)vertices.get(data[1]) , data[2] , data[3] , data[4]));
                 //callkeys[callnum++]=data[2];
+                callnum++;
                 callkeys.add(data[2]);
             }
         }
@@ -253,4 +255,45 @@ public class graph {
             System.out.println("Same vertex exist !");
     }
     */
+
+    //  /*
+
+    public int getCarnum() {
+        return carnum;
+    }
+
+    public int getPhonenum() {
+        return phonenum;
+    }
+
+    public int getHomenum() {
+        return homenum;
+    }
+
+    public int getPeoplenum() {
+        return peoplenum;
+    }
+
+    public int getAccountnum() {
+        return accountnum;
+    }
+
+    public int getOwnershipnum() {
+        return ownershipnum;
+    }
+
+    public int getTransactionnum() {
+        return transactionnum;
+    }
+
+    public int getCallnum() {
+        return callnum;
+    }
+
+    public int getRelationshipnum() {
+        return relationshipnum;
+    }
+
+
+    //  */
 }

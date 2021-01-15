@@ -8,4 +8,14 @@ public class relationship extends edge{
         this.relation=relation;
         this.date=LocalDate.parse(date);
     }
+
+    @Override
+    public String toString() {
+        return "relationship{" +
+                "relation='" + relation + '\'' +
+                ", date=" + date +
+                ", from=" + from +
+                ", to=" + to +
+                '}';
+    }
 }

@@ -11,4 +11,14 @@ String color;
         this.model = model;
         this.color = color;
     }
+
+    @Override
+    public String toString() {
+        return "car{" +
+                "plate='" + plate + '\'' +
+                ", ssn='" + ssn + '\'' +
+                ", model='" + model + '\'' +
+                ", color='" + color + '\'' +
+                '}';
+    }
 }

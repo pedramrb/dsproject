@@ -10,4 +10,15 @@ public class transaction extends edge {
         this.date=LocalDate.parse(date);
         this.transactionid=transactionid;
     }
+
+    @Override
+    public String toString() {
+        return "transaction{" +
+                "transactionid='" + transactionid + '\'' +
+                ", date=" + date +
+                ", amount='" + amount + '\'' +
+                ", from=" + from +
+                ", to=" + to +
+                '}';
+    }
 }

@@ -9,4 +9,13 @@ String operator;
         this.number = number;
         this.operator = operator;
     }
+
+    @Override
+    public String toString() {
+        return "phone{" +
+                "ssn='" + ssn + '\'' +
+                ", number='" + number + '\'' +
+                ", operator='" + operator + '\'' +
+                '}';
+    }
 }

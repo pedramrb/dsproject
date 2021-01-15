@@ -17,4 +17,15 @@ public class ownership extends edge {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "ownership{" +
+                "ownershipid='" + ownershipid + '\'' +
+                ", date=" + date +
+                ", amount='" + amount + '\'' +
+                ", from=" + from +
+                ", to=" + to +
+                '}';
+    }
 }

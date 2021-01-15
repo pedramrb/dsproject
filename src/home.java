@@ -13,4 +13,15 @@ String address;
         this.size = size;
         this.address = address;
     }
+
+    @Override
+    public String toString() {
+        return "home{" +
+                "ssn='" + ssn + '\'' +
+                ", price='" + price + '\'' +
+                ", postal_code='" + postal_code + '\'' +
+                ", size='" + size + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }

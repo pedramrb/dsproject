@@ -1,8 +1,10 @@
+import java.time.LocalDate;
+
 public class people  extends vertex{
     String firstname;
     String lastname;
     String ssn;
-    String birthday;
+    LocalDate birthday;
     String birthplace;
     String workplace;
     public people(String firstname,String lastname,String ssn,String birthday,String birthplace,String workplace){
@@ -10,7 +12,7 @@ public class people  extends vertex{
         this.firstname=firstname;
         this.lastname=lastname;
         this.ssn=ssn;
-        this.birthday=birthday;
+        this.birthday=LocalDate.parse(birthday);
         this.birthplace=birthplace;
         this.workplace=workplace;
     }
