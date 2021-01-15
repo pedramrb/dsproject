@@ -108,7 +108,7 @@ public class graph {
             scan.nextLine();
             while (scan.hasNextLine()){
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
-                edges.put(data[2] , new ownership(data[0] , data[1] , data[2] , data[3] , data[4]));
+                edges.put(data[2] , new ownership(vertices.get(data[0]), vertices.get(data[1]) , data[2] , data[3] , data[4]));
             }
         }
         catch (FileNotFoundException e){
@@ -122,7 +122,7 @@ public class graph {
             scan.nextLine();
             while (scan.hasNextLine()){
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
-                edges.put(data[2] , new transaction(data[0] , data[1] , data[2] , data[3] , data[4]));
+                edges.put(data[2] , new transaction(vertices.get(data[0]), vertices.get(data[1]) , data[2] , data[3] , data[4]));
             }
         }
         catch (FileNotFoundException e){
@@ -136,7 +136,7 @@ public class graph {
             scan.nextLine();
             while (scan.hasNextLine()){
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
-                edges.put(data[2] , new relationship(data[0] , data[1] , data[2] , data[3]));
+                edges.put(data[2] , new relationship(vertices.get(data[0]), vertices.get(data[1]) , data[2] , data[3]));
             }
         }
         catch (FileNotFoundException e){

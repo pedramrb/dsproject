@@ -5,7 +5,7 @@ public class ownership extends edge {
     String ownershipid;
     LocalDate date;
     String amount;
-    public ownership(people from,car to,String ownershipid,String date,String amount){
+    public ownership(vertex from, vertex to, String ownershipid, String date, String amount){
         super(from,to);
         this.ownershipid=ownershipid;
         this.date=LocalDate.parse(date);
