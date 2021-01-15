@@ -3,9 +3,9 @@ import java.io.*;
 import java.util.Scanner;
 
 public class graph {
-    private HashMap <String,vertex> vertices;
+    HashMap <String,vertex> vertices;
 
-    private HashMap <String,edge> edges;
+    HashMap <String,edge> edges;
 
     public graph(){
         vertices=new HashMap<String, vertex>();
@@ -13,6 +13,9 @@ public class graph {
 
 
         readaccounts();
+        readcars();
+        readhomes();
+        readphones();
         System.out.println(this.vertex_numbers());
     }
     private void readaccounts(){
@@ -41,6 +44,49 @@ public class graph {
     }
     public HashMap getvertices(){
         return vertices;
+    }
+    private void readcars(){
+        File f = new File("dataSample/cars.csv");
+        try{
+            Scanner scan = new Scanner(f);
+            scan.nextLine();
+            while(scan.hasNextLine()){
+                String data[] = scan.nextLine().replaceAll("\"" , "").split(",");
+                vertices.put(data[0] , new car(data[0],data[1],data[2],data[3]));
+            }
+            System.out.println("Done");
+        }
+        catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+    private void readhomes(){
+        File f=new File("dataSample/home.csv");
+        try{
+            Scanner scan = new Scanner(f);
+            scan.nextLine();
+            while (scan.hasNextLine()){
+                String data[]=scan.nextLine().replaceAll("\"","").split(",");
+                vertices.put(data[2] , new home(data[0] , data[1] , data[2], data[3] , data[4]));
+            }
+        }
+        catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+    private void readphones(){
+        File f=new File("dataSample/phone.csv");
+        try{
+            Scanner scan = new Scanner(f);
+            scan.nextLine();
+            while (scan.hasNextLine()){
+                String data[]=scan.nextLine().replaceAll("\"","").split(",");
+                vertices.put(data[1] , new phone(data[0] , data[1] , data[2]));
+            }
+        }
+        catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
     }
     public int vertex_numbers(){
         return vertices.size();
