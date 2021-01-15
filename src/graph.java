@@ -24,6 +24,78 @@ public class graph {
     private int relationshipnum=0;
     private HashMap <String,edge> edges;
 
+    public String[] getCarkeys() {
+        return carkeys;
+    }
+
+    public int getCarnum() {
+        return carnum;
+    }
+
+    public String[] getPhonekeys() {
+        return phonekeys;
+    }
+
+    public int getPhonenum() {
+        return phonenum;
+    }
+
+    public String[] getHomekeys() {
+        return homekeys;
+    }
+
+    public int getHomenum() {
+        return homenum;
+    }
+
+    public String[] getPeoplekeys() {
+        return peoplekeys;
+    }
+
+    public int getPeoplenum() {
+        return peoplenum;
+    }
+
+    public String[] getAccountkeys() {
+        return accountkeys;
+    }
+
+    public int getAccountnum() {
+        return accountnum;
+    }
+
+    public String[] getOwnershipkeys() {
+        return ownershipkeys;
+    }
+
+    public int getOwnershipnum() {
+        return ownershipnum;
+    }
+
+    public String[] getTransactionkeys() {
+        return transactionkeys;
+    }
+
+    public int getTransactionnum() {
+        return transactionnum;
+    }
+
+    public String[] getCallkeys() {
+        return callkeys;
+    }
+
+    public int getCallnum() {
+        return callnum;
+    }
+
+    public String[] getRelationshipkeys() {
+        return relationshipkeys;
+    }
+
+    public int getRelationshipnum() {
+        return relationshipnum;
+    }
+
     public graph(){
         vertices=new HashMap<String, vertex>();
         edges=new HashMap<String, edge>();
