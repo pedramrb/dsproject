@@ -32,7 +32,6 @@ public class graph {
             System.out.println("Done");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            return;
         }
     }
     public int vertex_numbers(){
