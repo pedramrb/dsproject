@@ -10,6 +10,7 @@ public class people  extends vertex{
     String workplace;
     ArrayList<String> accountkeys;
     ArrayList<String> family;
+    ArrayList<String> newownership;
     public people(String firstname,String lastname,String ssn,String birthday,String birthplace,String workplace){
 
         this.firstname=firstname;
@@ -20,7 +21,16 @@ public class people  extends vertex{
         this.workplace=workplace;
         accountkeys=new ArrayList<String>();
         family=new ArrayList<String>();
+        newownership=new ArrayList<String>();
     }
+    public void addnewownership(String ownershipid){
+        newownership.add(ownershipid);
+    }
+
+    public ArrayList<String> getNewownership() {
+        return newownership;
+    }
+
     public void addacountkey(String accountid){
         accountkeys.add(accountid);
     }

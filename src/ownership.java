@@ -11,8 +11,8 @@ public class ownership extends edge {
         this.date=LocalDate.parse(date);
         this.amount=amount;
     }
-    public boolean isnear(LocalDate then){
-        if(Math.abs(Period.between(date,then).getYears())>2){
+    public boolean isnear(){
+        if(Math.abs(Period.between(date,LocalDate.now()).getYears())>2){
             return false;
         }
         return true;

@@ -216,6 +216,11 @@ public class graph {
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
                 edges.put(data[2] , new ownership(vertices.get(data[0]), vertices.get(data[1]) , data[2] , data[3] , data[4]));
                 ownershipkeys.add(data[2]);
+                ownership x=((ownership)edges.get(data[2]));
+                //people x=((people)vertices.get(data[0]));
+                if(x.isnear()){
+                    ((people)vertices.get(data[0])).addnewownership(data[2]);
+                }
             }
         }
         catch (FileNotFoundException e){
@@ -231,10 +236,15 @@ public class graph {
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
                 edges.put(data[2] , new transaction(vertices.get(data[0]), vertices.get(data[1]) , data[2] , data[3] , data[4]));
                 transactionkeys.add(data[2]);
+                ((account)vertices.get(data[0])).addfromtransactionkey(data[1]);
+                ((account)vertices.get(data[1])).addtotransactionkey(data[0]);
+                /*
                 for (int i = 0; i < acccustomkeys.size(); i++) {
                     if (data[0].equals(acccustomkeys.get(i)))
                         transactionofcustom.add(data[2]);
                 }
+
+                 */
             }
         }
         catch (FileNotFoundException e){
@@ -250,10 +260,12 @@ public class graph {
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
                 edges.put(data[1] , new relationship(vertices.get(data[0]), vertices.get(data[1]) , data[2] , data[3]));
                 relationshipkeys.add(data[1]);
+                ((people)vertices.get(data[0])).addfamily(data[1]);/*
                 for (int i = 0; i < customkeys.size() ; i++) {
                     if (data[0].equals(customkeys.get(i)))
                         relationkeys.add(data[1]);
                 }
+                */
             }
         }
         catch (FileNotFoundException e){
