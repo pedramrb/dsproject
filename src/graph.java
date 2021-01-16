@@ -134,10 +134,9 @@ public class graph {
                 vertices.put(data[2],new account(data[0],data[1],data[2],data[3]));
                 accountkeys.add(data[2]);
                 for (int i = 0 ; i < customkeys.size() ; i++){
-                    if (data[0] == customkeys.get(i))
+                    if (data[0].equals(customkeys.get(i)))
                         acccustomkeys.add(data[2]);
                 }
-
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -229,7 +228,7 @@ public class graph {
                 edges.put(data[2] , new transaction(vertices.get(data[0]), vertices.get(data[1]) , data[2] , data[3] , data[4]));
                 transactionkeys.add(data[2]);
                 for (int i = 0; i < acccustomkeys.size(); i++) {
-                    if (data[0] == acccustomkeys.get(i))
+                    if (data[0].equals(acccustomkeys.get(i)))
                         transactionofcustom.add(data[2]);
                 }
             }
