@@ -29,7 +29,7 @@ public class phase_two {
             }
         }
 
-        printbadcustoms(badcustoms,vertices);
+        //printbadcustoms(badcustoms,vertices);
 
 
     }

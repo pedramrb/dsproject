@@ -37,6 +37,7 @@ public class graph {
         readownerships();
         readtransactions();
         readrelationships();
+        printbadcustoms();
         //printcriminal();
         //printcustom();
         //System.out.println(this.edges.get("974208").toString());
@@ -219,13 +220,29 @@ public class graph {
                 ownership x=((ownership)edges.get(data[2]));
                 //people x=((people)vertices.get(data[0]));
                 if(x.isnear()){
-                    System.out.println(x.toString());
+                    //System.out.println(x.toString());
                     ((people)vertices.get(data[0])).addnewownership(data[2]);
                 }
             }
         }
         catch (FileNotFoundException e){
             e.printStackTrace();
+        }
+    }
+    public void printbadcustoms(){
+        for(String i:customkeys){
+            if(((people)vertices.get(i)).newownership.size()>0){
+                System.out.println(i+((people)vertices.get(i)).toString());
+            }
+            else{
+                ArrayList<String> d=((people)vertices.get(i)).getFamily();
+                for(String j:d){
+                    if(((people)vertices.get(j)).newownership.size()>0){
+                        System.out.println(i+" "+j+((people)vertices.get(i)).toString());
+                        continue;
+                    }
+                }
+            }
         }
     }
     private void readtransactions(){
