@@ -10,7 +10,7 @@ public class phase_two {
         HashMap<String,vertex> vertices=g.getVertices();
         ArrayList<String> badcustoms=new ArrayList<String>();
 
-        /*
+
         for(String key:custom){
             people p=((people)vertices.get(key));
             ArrayList<String>pownerships=p.getNewownership();
@@ -31,11 +31,12 @@ public class phase_two {
             }
         }
 
-         */
 
 
 
 
+
+        /*
         ArrayList<String> ssn=new ArrayList<String>();
         ssn.add("40119347287");
         ssn.add("92637325775");
@@ -51,12 +52,14 @@ public class phase_two {
         ssn.add("76465777888");
         ssn.add("77132792314");
         ssn.add("19081257821");
-        for(String a:ssn){
+
+         */
+        for(String a:badcustoms){
             people p=((people)vertices.get(a));
             System.out.println(p.toString());
-            System.out.println("self= "+p.newownership.size()+"\tfamily= "+p.getfamilyownership(vertices));
+            System.out.println("self= "+p.newownership.size()+"\tfamily= "+p.getfamilyownership(vertices, g.getEdges()));
             for(String k:p.getNewownership()){
-                System.out.println("/t"+g.getEdges().get(k).toString());
+                System.out.println("\t\t"+g.getEdges().get(k).toString());
             }
         }
 

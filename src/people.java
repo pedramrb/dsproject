@@ -28,13 +28,17 @@ public class people  extends vertex{
     boolean isbadcustom(){
         return isbadcustom;
     }
-    int getfamilyownership(HashMap<String,vertex> vertices){
+    int getfamilyownership(HashMap<String,vertex> vertices,HashMap<String,edge> edges){
         int a=0;
         for(String k:family){
             people x=((people)vertices.get(k));
             a+=x.getNewownership().size();
             if(x.getNewownership().size()>0){
                 System.out.println("\t"+x.getNewownership().size()+"=>"+x);
+                ArrayList<String> o=x.getNewownership();
+                for(String g:o){
+                    System.out.println("\t\t"+edges.get(g).toString());
+                }
             }
         }
         return a;
