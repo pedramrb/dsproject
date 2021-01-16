@@ -34,7 +34,7 @@ public class graph {
         readtransactions();
         readrelationships();
         //printcriminal();
-        printcustom();
+        //printcustom();
         //System.out.println(this.edges.get("974208").toString());
     }
 
