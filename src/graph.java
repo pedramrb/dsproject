@@ -17,6 +17,8 @@ public class graph {
     private ArrayList<String> callkeys=new ArrayList<String>();
     private ArrayList<String> relationshipkeys=new ArrayList<String>();
 
+    public ArrayList<String> badowners=new ArrayList<String>();
+
     private ArrayList<String> criminalkeys = new ArrayList<String>(); //ssn
     private ArrayList<String> customkeys = new ArrayList<String>(); //ssn of custom
     private ArrayList<String> relationkeys = new ArrayList<String>(); //ssn of relation
@@ -34,10 +36,11 @@ public class graph {
         readhomes();
         readphones();
         readcalls();
+        readrelationships();
         readownerships();
         readtransactions();
-        readrelationships();
-        printbadcustoms();
+
+        //printbadcustoms();
         //printcriminal();
         //printcustom();
         //System.out.println(this.edges.get("974208").toString());
@@ -218,10 +221,28 @@ public class graph {
                 edges.put(data[2] , new ownership(vertices.get(data[0]), vertices.get(data[1]) , data[2] , data[3] , data[4]));
                 ownershipkeys.add(data[2]);
                 ownership x=((ownership)edges.get(data[2]));
-                //people x=((people)vertices.get(data[0]));
+                people p=((people)vertices.get(data[0]));
                 if(x.isnear()){
                     //System.out.println(x.toString());
-                    ((people)vertices.get(data[0])).addnewownership(data[2]);
+                    if((p.workplace.equals("گمرک")||p.workplace.equals("سازمان بنادر"))&&(!p.isbadcustom)){
+                        p.isbadcustom=true;
+                        //*System.out.println("self\t"+p.toString());
+                    }
+                    else{
+                        ArrayList <String> t=p.getFamily();
+                        for(int i=0;i<t.size();i++){
+                            people p2=((people)vertices.get(t.get(i)));
+                            if((p2.workplace.equals("گمرک")||p2.workplace.equals("سازمان بنادر"))&&(!p2.isbadcustom)){
+                                p2.isbadcustom=true;
+                                ////System.out.println("family\t"+p.toString());
+                                //*System.out.println("\tself\t"+p2.toString());
+                            }
+
+                        }
+                    }
+                    //System.out.println(p.toString());
+                    //isbadowner(x,p);
+                    p.addnewownership(data[2]);
                 }
             }
         }
@@ -229,20 +250,46 @@ public class graph {
             e.printStackTrace();
         }
     }
+    private boolean isbadowner(ownership own,people p){
+        if(p.workplace.equals("گمرک")||p.workplace.equals("اداره بنادر")){
+            badowners.add(p.ssn);
+            System.out.println(p.toString());
+            return true;
+        }
+        for(String i:p.getFamily()){
+            people x=((people)vertices.get(i));
+            if(x.workplace.equals("گمرک")||p.workplace.equals("اداره بنادر")){
+                badowners.add(x.ssn);
+                System.out.println("prim\t"+x.toString());
+                return true;
+            }
+        }
+        return false;
+    }
     public void printbadcustoms(){
         for(String i:customkeys){
             if(((people)vertices.get(i)).newownership.size()>0){
-                System.out.println(i+((people)vertices.get(i)).toString());
+                //System.out.println(i+((people)vertices.get(i)).toString());
             }
             else{
                 ArrayList<String> d=((people)vertices.get(i)).getFamily();
+                printarraylist(d);
+                /*
                 for(String j:d){
+
                     if(((people)vertices.get(j)).newownership.size()>0){
-                        System.out.println(i+" "+j+((people)vertices.get(i)).toString());
+                        //System.out.println(i+" "+j+((people)vertices.get(i)).toString());
                         continue;
                     }
                 }
+
+                 */
             }
+        }
+    }
+    private void printarraylist(ArrayList<String> arr){
+        for(String k:arr){
+            System.out.println(vertices.get(k).toString());
         }
     }
     private void readtransactions(){

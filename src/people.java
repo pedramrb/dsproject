@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class people  extends vertex{
     String firstname;
@@ -11,6 +12,7 @@ public class people  extends vertex{
     ArrayList<String> accountkeys;
     ArrayList<String> family;
     ArrayList<String> newownership;
+    boolean isbadcustom=false;
     public people(String firstname,String lastname,String ssn,String birthday,String birthplace,String workplace){
 
         this.firstname=firstname;
@@ -22,6 +24,20 @@ public class people  extends vertex{
         accountkeys=new ArrayList<String>();
         family=new ArrayList<String>();
         newownership=new ArrayList<String>();
+    }
+    boolean isbadcustom(){
+        return isbadcustom;
+    }
+    int getfamilyownership(HashMap<String,vertex> vertices){
+        int a=0;
+        for(String k:family){
+            people x=((people)vertices.get(k));
+            a+=x.getNewownership().size();
+            if(x.getNewownership().size()>0){
+                System.out.println("\t"+x.getNewownership().size()+"=>"+x);
+            }
+        }
+        return a;
     }
     public void addnewownership(String ownershipid){
         newownership.add(ownershipid);
