@@ -13,10 +13,12 @@ public class ownership extends edge {
     }
     public boolean isnear(){
 
-        System.out.print(Period.between(date,LocalDate.now()).getYears()+"  => ");
+        System.out.print(ownershipid+"  => "+Period.between(date,LocalDate.now()).getYears()+" => ");
         if(Math.abs(Period.between(date,LocalDate.now()).getYears())>2){
+            System.out.println("no\t"+date+" & "+LocalDate.now());
             return false;
         }
+        System.out.println("yes\t"+date+" & "+LocalDate.now());
         return true;
     }
 

@@ -219,6 +219,7 @@ public class graph {
                 ownership x=((ownership)edges.get(data[2]));
                 //people x=((people)vertices.get(data[0]));
                 if(x.isnear()){
+                    System.out.println(x.toString());
                     ((people)vertices.get(data[0])).addnewownership(data[2]);
                 }
             }
