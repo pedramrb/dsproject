@@ -13,9 +13,9 @@ public class phase_two {
         ArrayList <String> idcustom = g.getAcccustomkeys(); //account id
         ArrayList <String> transfromcustom = g.getTransactionofcustom(); //transactions from customs
 
-            System.out.println(idcustom);
+            //System.out.println(idcustom);
 
-        for(String key:idcustom){
+        for(String key:transfromcustom){
             System.out.println(vertices.get(key).toString());
         }
 
