@@ -253,11 +253,16 @@ public class graph {
         }
     }
 
-
-    public int vertex_numbers(){
-        return vertices.size();
+    public void addfamily(String ssn1 ,String ssn2){
+        ((people)vertices.get(ssn1)).addfamily(ssn2);
+        ((people)vertices.get(ssn2)).addfamily(ssn1);
     }
-    public int edge_numbers(){
-        return edges.size();
+    public void addacount(String ssn,String accountid){
+        ((people)vertices.get(ssn)).addacountkey(accountid);
+    }
+    public void addtransaction(String transactionid){
+        transaction tr=((transaction)edges.get(transactionid));
+        ((account)tr.from).addfromtransactionkey(tr.transactionid);
+        ((account)tr.to).addtotransactionkey(tr.transactionid);
     }
 }
