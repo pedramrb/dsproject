@@ -12,11 +12,13 @@ public class criminal {
         who();
     }
     private void who() {
-        ArrayList<String> crim =g.getCriminalkeys();
-        for(String x:crim){
-            System.out.println(x);
-        }
+        ArrayList<String> crim = g.getCriminalkeys();
+        ArrayList<String> keys = g.getPeoplekeys();
 
+        for (String x : crim) {
+                System.out.println("work : " + x);
+        }
     }
-}
+    }
+
 
