@@ -37,6 +37,7 @@ public class phase_two {
 
 
         ArrayList<String> ssn=new ArrayList<String>();
+        ssn.add("40119347287");
         ssn.add("92637325775");
         ssn.add("46730468386");
         ssn.add("59095165555");
