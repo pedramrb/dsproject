@@ -6,18 +6,18 @@ public class phase_two {
         graph g = new graph();
         //ArrayList <String> badcustom = new ArrayList<String>();
         //ArrayList <String> criminal=g.getCriminalkeys();
+        //ArrayList <String> transfromcustom = g.getTransactionofcustom(); //transactions from customs
+        ArrayList <String> idcustom = g.getAcccustomkeys(); //account id
 
         ArrayList <String> transaction = g.getTransactionkeys();
         HashMap<String,vertex> vertices=g.getVertices();
-        ArrayList <String> custom=g.getCustomkeys(); //ssn
-        ArrayList <String> idcustom = g.getAcccustomkeys(); //account id
-        ArrayList <String> transfromcustom = g.getTransactionofcustom(); //transactions from customs
+        ArrayList <String> custom=g.getCustomkeys(); //ssn of custom
+        ArrayList <String> relation=g.getRelationkeys(); //ssn of relation
 
-            //System.out.println(idcustom);
-
-        for(String key:transfromcustom){
-            System.out.println(vertices.get(key).toString());
+        for(String x:relation){
+            System.out.println(vertices.get(x).toString());
         }
+
 
     }
 

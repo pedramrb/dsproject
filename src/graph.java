@@ -18,7 +18,8 @@ public class graph {
     private ArrayList<String> relationshipkeys=new ArrayList<String>();
 
     private ArrayList<String> criminalkeys = new ArrayList<String>(); //ssn
-    private ArrayList<String> customkeys = new ArrayList<String>(); //ssn
+    private ArrayList<String> customkeys = new ArrayList<String>(); //ssn of custom
+    private ArrayList<String> relationkeys = new ArrayList<String>(); //ssn of relation
     private ArrayList<String> acccustomkeys = new ArrayList<String>(); //account id custom
     private ArrayList<String> transactionofcustom = new ArrayList<String>(); //transactionid of custom(from)
 
@@ -81,6 +82,9 @@ public class graph {
     }
     public ArrayList<String> getCustomkeys() {
         return customkeys;
+    }
+    public ArrayList<String> getRelationkeys(){
+        return relationkeys;
     }
     public ArrayList<String> getAcccustomkeys(){
         return acccustomkeys;
@@ -244,8 +248,12 @@ public class graph {
             scan.nextLine();
             while (scan.hasNextLine()){
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
-                edges.put(data[2] , new relationship(vertices.get(data[0]), vertices.get(data[1]) , data[2] , data[3]));
-                relationshipkeys.add(data[2]);
+                edges.put(data[1] , new relationship(vertices.get(data[0]), vertices.get(data[1]) , data[2] , data[3]));
+                relationshipkeys.add(data[1]);
+                for (int i = 0; i < customkeys.size() ; i++) {
+                    if (data[0].equals(customkeys.get(i)))
+                        relationkeys.add(data[1]);
+                }
             }
         }
         catch (FileNotFoundException e){
