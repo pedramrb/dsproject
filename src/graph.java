@@ -131,11 +131,11 @@ public class graph {
             scan.nextLine();
             while(scan.hasNextLine()){
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
-                vertices.put(data[2],new account(data[0],data[1],data[2],data[3]));
-                accountkeys.add(data[2]);
+                vertices.put(data[3],new account(data[0],data[1],data[2],data[3]));
+                accountkeys.add(data[3]);
                 for (int i = 0 ; i < customkeys.size() ; i++){
                     if (data[0].equals(customkeys.get(i)))
-                        acccustomkeys.add(data[2]);
+                        acccustomkeys.add(data[3]);
                 }
             }
         } catch (FileNotFoundException e) {
