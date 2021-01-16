@@ -18,6 +18,7 @@ public class graph {
     private ArrayList<String> relationshipkeys=new ArrayList<String>();
 
     private ArrayList<String> criminalkeys = new ArrayList<String>();
+    private ArrayList<String> customkeys = new ArrayList<String>();
 
     public graph(){
         vertices=new HashMap<String, vertex>();
@@ -32,6 +33,8 @@ public class graph {
         readownerships();
         readtransactions();
         readrelationships();
+        printcriminal();
+        printcustom();
         //System.out.println(this.edges.get("974208").toString());
     }
 
@@ -77,11 +80,28 @@ public class graph {
                 String data[] = scan.nextLine().replaceAll("\"" , "").split(",");
                 vertices.put(data[2] , new people(data[0],data[1],data[2],data[3] , data[4] , data[5]));
                 peoplekeys.add(data[2]);
-                criminalkeys.add(data[5]);
+                if(data[5].equals("قاچاقچی")) {
+                    criminalkeys.add(data[2]);
+                    //System.out.println(vertices.get(data[2]).toString());
+                }
+                if(data[5].equals("گمرک")){
+                    customkeys.add(data[2]);
+                }
             }
         }
         catch (FileNotFoundException e){
             e.printStackTrace();
+        }
+    }
+
+    private void printcriminal(){
+        for(String key:criminalkeys){
+            System.out.println(vertices.get(key).toString());
+        }
+    }
+    private void printcustom(){
+        for(String key:customkeys){
+            System.out.println(vertices.get(key).toString());
         }
     }
 
