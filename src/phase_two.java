@@ -10,7 +10,8 @@ public class phase_two {
         ArrayList <String> transaction = g.getTransactionkeys();
         HashMap<String,vertex> vertices=g.getVertices();
         ArrayList <String> custom=g.getCustomkeys(); //ssn
-        ArrayList <String> fromc = g.getAcccustomkeys(); //account id
+        ArrayList <String> idcustom = g.getAcccustomkeys(); //account id
+        ArrayList <String> transfromcustom = g.getTransactionofcustom(); //transactions from customs
 
 
 

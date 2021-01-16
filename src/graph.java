@@ -19,8 +19,9 @@ public class graph {
 
     private ArrayList<String> criminalkeys = new ArrayList<String>(); //ssn
     private ArrayList<String> customkeys = new ArrayList<String>(); //ssn
+    private ArrayList<String> acccustomkeys = new ArrayList<String>(); //account id custom
+    private ArrayList<String> transactionofcustom = new ArrayList<String>(); //transactionid of custom(from)
 
-    private ArrayList<String > acccustomkeys = new ArrayList<String>(); //account id custom
 
     public graph(){
         vertices=new HashMap<String, vertex>();
@@ -78,14 +79,14 @@ public class graph {
     public ArrayList<String> getCriminalkeys() {
         return criminalkeys;
     }
-
     public ArrayList<String> getCustomkeys() {
         return customkeys;
     }
-
-    // account id of custom(from)
     public ArrayList<String> getAcccustomkeys(){
         return acccustomkeys;
+    }
+    public ArrayList<String> getTransactionofcustom(){
+        return transactionofcustom;
     }
 
 
@@ -227,6 +228,10 @@ public class graph {
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
                 edges.put(data[2] , new transaction(vertices.get(data[0]), vertices.get(data[1]) , data[2] , data[3] , data[4]));
                 transactionkeys.add(data[2]);
+                for (int i = 0; i < acccustomkeys.size(); i++) {
+                    if (data[0] == acccustomkeys.get(i))
+                        transactionofcustom.add(data[2]);
+                }
             }
         }
         catch (FileNotFoundException e){
