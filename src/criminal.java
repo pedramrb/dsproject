@@ -12,11 +12,10 @@ public class criminal {
         who();
     }
     private void who() {
-        ArrayList<String> c = g.getPeoplekeys();
-        HashMap<ArrayList<String>, HashMap> people = new HashMap<>();
-        people.put(c , vertices);
+        HashMap<ArrayList<String>, vertex> people = new HashMap<>();
+        people.put(g.getPeoplekeys(), vertices.keySet("workplase"));
         for (ArrayList<String> i : people.keySet()) {
-            System.out.println(i);
+            System.out.println("key: " + i + " value: " + people.get(i) + "n/");
         }
 
     }
