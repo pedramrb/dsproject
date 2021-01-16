@@ -12,10 +12,9 @@ public class criminal {
         who();
     }
     private void who() {
-        HashMap<ArrayList<String>, vertex> people = new HashMap<>();
-        people.put(g.getPeoplekeys(), vertices.keySet("workplase"));
-        for (ArrayList<String> i : people.keySet()) {
-            System.out.println("key: " + i + " value: " + people.get(i) + "n/");
+        ArrayList<String> crim =g.getCriminalkeys();
+        for(String x:crim){
+            System.out.println(x);
         }
 
     }

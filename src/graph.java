@@ -17,6 +17,7 @@ public class graph {
     private ArrayList<String> callkeys=new ArrayList<String>();
     private ArrayList<String> relationshipkeys=new ArrayList<String>();
 
+    private ArrayList<String> criminalkeys = new ArrayList<String>();
 
     public graph(){
         vertices=new HashMap<String, vertex>();
@@ -38,37 +39,33 @@ public class graph {
     public ArrayList<String> getCarkeys() {
         return carkeys;
     }
-
     public ArrayList<String> getPhonekeys() {
         return phonekeys;
     }
-
     public ArrayList<String> getHomekeys() {
         return homekeys;
     }
-
     public ArrayList<String> getPeoplekeys() {
         return peoplekeys;
     }
-
     public ArrayList<String> getAccountkeys() {
         return accountkeys;
     }
-
     public ArrayList<String> getOwnershipkeys() {
         return ownershipkeys;
     }
-
     public ArrayList<String> getTransactionkeys() {
         return transactionkeys;
     }
-
     public ArrayList<String> getCallkeys() {
         return callkeys;
     }
-
     public ArrayList<String> getRelationshipkeys() {
         return relationshipkeys;
+    }
+
+    public ArrayList<String> getCriminalkeys() {
+        return criminalkeys;
     }
 
     private void readpeoples(){
@@ -80,12 +77,14 @@ public class graph {
                 String data[] = scan.nextLine().replaceAll("\"" , "").split(",");
                 vertices.put(data[2] , new people(data[0],data[1],data[2],data[3] , data[4] , data[5]));
                 peoplekeys.add(data[2]);
+                criminalkeys.add(data[5]);
             }
         }
         catch (FileNotFoundException e){
             e.printStackTrace();
         }
     }
+
     private void readaccounts(){
         File f=new File("dataSample/accounts.csv");
         try{
