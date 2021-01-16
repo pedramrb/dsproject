@@ -4,12 +4,16 @@ import java.util.HashMap;
 public class phase_two {
     public static void main(String[] args) {
         graph g = new graph();
-        ArrayList <String> badcustom = new ArrayList<String>();
+        //ArrayList <String> badcustom = new ArrayList<String>();
+        //ArrayList <String> criminal=g.getCriminalkeys();
 
         ArrayList <String> transaction = g.getTransactionkeys();
         HashMap<String,vertex> vertices=g.getVertices();
-        ArrayList <String> custom=g.getCustomkeys();
-        ArrayList <String> criminal=g.getCriminalkeys();
+        ArrayList <String> custom=g.getCustomkeys(); //ssn
+        ArrayList <String> fromc = g.getAcccustomkeys(); //account id
+
+
 
     }
+
 }

@@ -17,8 +17,10 @@ public class graph {
     private ArrayList<String> callkeys=new ArrayList<String>();
     private ArrayList<String> relationshipkeys=new ArrayList<String>();
 
-    private ArrayList<String> criminalkeys = new ArrayList<String>();
-    private ArrayList<String> customkeys = new ArrayList<String>();
+    private ArrayList<String> criminalkeys = new ArrayList<String>(); //ssn
+    private ArrayList<String> customkeys = new ArrayList<String>(); //ssn
+
+    private ArrayList<String > acccustomkeys = new ArrayList<String>(); //account id custom
 
     public graph(){
         vertices=new HashMap<String, vertex>();
@@ -41,7 +43,6 @@ public class graph {
     public HashMap<String, vertex> getVertices() {
         return vertices;
     }
-
     public HashMap<String, edge> getEdges() {
         return edges;
     }
@@ -81,6 +82,12 @@ public class graph {
     public ArrayList<String> getCustomkeys() {
         return customkeys;
     }
+
+    // account id of custom(from)
+    public ArrayList<String> getAcccustomkeys(){
+        return acccustomkeys;
+    }
+
 
     private void readpeoples(){
         File f = new File("dataSample/people.csv");
@@ -125,6 +132,11 @@ public class graph {
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
                 vertices.put(data[2],new account(data[0],data[1],data[2],data[3]));
                 accountkeys.add(data[2]);
+                for (int i = 0 ; i < customkeys.size() ; i++){
+                    if (data[0] == customkeys.get(i))
+                        acccustomkeys.add(data[2]);
+                }
+
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
