@@ -7,8 +7,8 @@ public class print_graph {
     private HashMap vertices;
     public print_graph(graph g){
         this.g=g;
-        edges=g.getedges();
-        vertices=g.getvertices();
+        edges=g.getEdges();
+        vertices=g.getVertices();
         printpeople();
         printaccounts();
         printcalls();

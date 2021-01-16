@@ -33,11 +33,18 @@ public class graph {
         readownerships();
         readtransactions();
         readrelationships();
-        printcriminal();
+        //printcriminal();
         printcustom();
         //System.out.println(this.edges.get("974208").toString());
     }
 
+    public HashMap<String, vertex> getVertices() {
+        return vertices;
+    }
+
+    public HashMap<String, edge> getEdges() {
+        return edges;
+    }
 
     public ArrayList<String> getCarkeys() {
         return carkeys;
@@ -71,6 +78,10 @@ public class graph {
         return criminalkeys;
     }
 
+    public ArrayList<String> getCustomkeys() {
+        return customkeys;
+    }
+
     private void readpeoples(){
         File f = new File("dataSample/people.csv");
         try{
@@ -84,7 +95,7 @@ public class graph {
                     criminalkeys.add(data[2]);
                     //System.out.println(vertices.get(data[2]).toString());
                 }
-                if(data[5].equals("گمرک")){
+                if(data[5].equals("گمرک")||data[5].equals("سازمان بنادر")){
                     customkeys.add(data[2]);
                 }
             }
@@ -226,12 +237,7 @@ public class graph {
         }
     }
 
-    public HashMap getedges(){
-        return edges;
-    }
-    public HashMap getvertices(){
-        return vertices;
-    }
+
     public int vertex_numbers(){
         return vertices.size();
     }
