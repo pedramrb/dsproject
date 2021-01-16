@@ -1,9 +1,6 @@
 public class phase_two {
-    graph g;
-    public phase_two(graph g){
-        this.g=g;
+    public static void main(String[] args) {
+        graph g = new graph();
+        new criminal(g);
     }
-
-
-
 }
