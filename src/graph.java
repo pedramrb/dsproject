@@ -43,7 +43,6 @@ public class graph {
         //printbadcustoms();
         //printcriminal();
         //printcustom();
-        //System.out.println(this.edges.get("974208").toString());
     }
 
     public HashMap<String, vertex> getVertices() {
