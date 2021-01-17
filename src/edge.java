@@ -1,4 +1,7 @@
-public class edge {
+import java.util.ArrayList;
+import java.util.function.IntFunction;
+
+public class edge extends ArrayList<String> {
 
     vertex from;
     vertex to;
@@ -7,4 +10,6 @@ public class edge {
         this.from=from;
         this.to=to;
     }
+
+
 }
