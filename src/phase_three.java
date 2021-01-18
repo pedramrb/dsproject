@@ -19,9 +19,9 @@ public class phase_three {
         this.edges=g.getEdges();
         this.vertices=g.getVertices();
         for(String key:phase2custom){
-            //System.out.println(vertices.get(key).toString());
+            //System.out.println("\t"+vertices.get(key).toString());
             if(check((people)vertices.get(key),0)){
-                System.out.println(vertices.get(key).toString());
+                System.err.println(vertices.get(key).toString());
             }
         }
     }
@@ -39,7 +39,7 @@ public class phase_three {
             //System.out.println("\tfirst for loop");
             //for(String j:((account)vertices.get(i)).totransactionkeys){
             for(int j=0;j<((account)vertices.get(m)).totransactionkeys.size();j++){
-                System.out.println(((account)vertices.get(m)).totransactionkeys.size());
+                //System.out.println(((account)vertices.get(m)).totransactionkeys.size());
                 String n=((account)vertices.get(m)).totransactionkeys.get(j);
                 //System.out.println(vertices.get(m).toString());
                 transaction tr= (transaction) edges.get(n);
@@ -50,7 +50,7 @@ public class phase_three {
                     if (check(temp, x + 1))
                         return true;
                 } catch (Exception e) {
-                    //System.err.println(e);
+                    //System.err.println(n);
                     e.printStackTrace();
                 }
             }
@@ -58,7 +58,7 @@ public class phase_three {
         return false;
     }
     public boolean isbad(people p){
-        System.out.println(p.workplace);
+        //System.out.println(p.workplace);
         if(p.workplace.equals("قاچاقچی"))
             return true;
         return false;

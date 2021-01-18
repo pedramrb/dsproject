@@ -38,7 +38,7 @@ public class graph {
         readcalls();
         readrelationships();
         readownerships();
-        readtransactions();
+        newreadtransactions();
 
         //printbadcustoms();
         //printcriminal();
@@ -295,6 +295,7 @@ public class graph {
             System.out.println(vertices.get(k).toString());
         }
     }
+    /*
     private void readtransactions(){
         File f=new File("dataSample/transactions.csv");
         try{
@@ -306,19 +307,15 @@ public class graph {
                 transactionkeys.add(data[2]);
                 ((account)vertices.get(data[0])).addfromtransactionkey(data[1]);
                 ((account)vertices.get(data[1])).addtotransactionkey(data[0]);
-                /*
-                for (int i = 0; i < acccustomkeys.size(); i++) {
-                    if (data[0].equals(acccustomkeys.get(i)))
-                        transactionofcustom.add(data[2]);
-                }
 
-                 */
             }
         }
         catch (FileNotFoundException e){
             e.printStackTrace();
         }
     }
+
+     */
     private void readrelationships(){
         File f=new File("dataSample/relationships.csv");
         try{
@@ -352,5 +349,22 @@ public class graph {
         transaction tr=((transaction)edges.get(transactionid));
         ((account)tr.from).addfromtransactionkey(tr.transactionid);
         ((account)tr.to).addtotransactionkey(tr.transactionid);
+    }
+    public void newreadtransactions(){
+        File f=new File("dataSample/transactions.csv");
+        try{
+            Scanner scan=new Scanner(f);
+            scan.nextLine();
+            while (scan.hasNextLine()){
+                String data[]=scan.nextLine().replaceAll("\"","").split(",");
+                //System.out.println(data[0]+" "+data[1]+" "+data[2]+" "+data[3]+" "+data[4]);
+                edges.put( data[2] , new transaction( vertices.get(data[0]) , vertices.get(data[1]) , data[2] , data[3] , data[4] ) );
+                ((account)vertices.get(data[0])).addfromtransactionkey(data[2]);
+                ((account)vertices.get(data[1])).addtotransactionkey(data[2]);
+                transactionkeys.add(data[2]);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
