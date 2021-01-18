@@ -23,7 +23,6 @@ public class graph {
     private ArrayList<String> customkeys = new ArrayList<String>(); //ssn of custom
     private ArrayList<String> relationkeys = new ArrayList<String>(); //ssn of relation
     private ArrayList<String> acccustomkeys = new ArrayList<String>(); //account id custom
-    private ArrayList<String> transactionofcustom = new ArrayList<String>(); //transactionid of custom(from)
 
 
     public graph(){
@@ -39,10 +38,6 @@ public class graph {
         readrelationships();
         readownerships();
         newreadtransactions();
-
-        //printbadcustoms();
-        //printcriminal();
-        //printcustom();
     }
 
     public HashMap<String, vertex> getVertices() {
@@ -86,15 +81,6 @@ public class graph {
     public ArrayList<String> getCustomkeys() {
         return customkeys;
     }
-    public ArrayList<String> getRelationkeys(){
-        return relationkeys;
-    }
-    public ArrayList<String> getAcccustomkeys(){
-        return acccustomkeys;
-    }
-    public ArrayList<String> getTransactionofcustom(){
-        return transactionofcustom;
-    }
 
 
     private void readpeoples(){
@@ -108,7 +94,6 @@ public class graph {
                 peoplekeys.add(data[2]);
                 if(data[5].equals("قاچاقچی")) {
                     criminalkeys.add(data[2]);
-                    //System.out.println(vertices.get(data[2]).toString());
                 }
                 if(data[5].equals("گمرک")||data[5].equals("سازمان بنادر")){
                     customkeys.add(data[2]);
@@ -117,17 +102,6 @@ public class graph {
         }
         catch (FileNotFoundException e){
             e.printStackTrace();
-        }
-    }
-
-    private void printcriminal(){
-        for(String key:criminalkeys){
-            System.out.println(vertices.get(key).toString());
-        }
-    }
-    private void printcustom(){
-        for(String key:customkeys){
-            System.out.println(vertices.get(key).toString());
         }
     }
 
@@ -141,13 +115,6 @@ public class graph {
                 vertices.put(data[3],new account(data[0],data[1],data[2],data[3]));
                 accountkeys.add(data[3]);
                 ((people)vertices.get(data[0])).addacountkey(data[3]);
-                /*
-                for (int i = 0 ; i < customkeys.size() ; i++){
-                    if (data[0].equals(customkeys.get(i)))
-                        acccustomkeys.add(data[3]);
-                }
-
-                 */
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -205,7 +172,6 @@ public class graph {
             scan.nextLine();
             while (scan.hasNextLine()){
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
-                //System.out.println(data[0]+" "+data[1]+" \""+data[2]+"\" "+data[3]+" "+data[4]);
                 edges.put(data[2] , new call((vertex)vertices.get(data[0]), (vertex)vertices.get(data[1]) , data[2] , data[3] , data[4]));
                 callkeys.add(data[2]);
             }
@@ -226,10 +192,8 @@ public class graph {
                 ownership x=((ownership)edges.get(data[2]));
                 people p=((people)vertices.get(data[0]));
                 if(x.isnear()){
-                    //System.out.println(x.toString());
                     if((p.workplace.equals("گمرک")||p.workplace.equals("سازمان بنادر"))&&(!p.isbadcustom)){
                         p.isbadcustom=true;
-                        //*System.out.println("self\t"+p.toString());
                     }
                     else{
                         ArrayList <String> t=p.getFamily();
@@ -237,14 +201,10 @@ public class graph {
                             people p2=((people)vertices.get(t.get(i)));
                             if((p2.workplace.equals("گمرک")||p2.workplace.equals("سازمان بنادر"))&&(!p2.isbadcustom)){
                                 p2.isbadcustom=true;
-                                ////System.out.println("family\t"+p.toString());
-                                //*System.out.println("\tself\t"+p2.toString());
                             }
 
                         }
                     }
-                    //System.out.println(p.toString());
-                    //isbadowner(x,p);
                     p.addnewownership(data[2]);
                 }
             }
@@ -253,6 +213,7 @@ public class graph {
             e.printStackTrace();
         }
     }
+    /*
     private boolean isbadowner(ownership own,people p){
         if(p.workplace.equals("گمرک")||p.workplace.equals("اداره بنادر")){
             badowners.add(p.ssn);
@@ -269,32 +230,8 @@ public class graph {
         }
         return false;
     }
-    public void printbadcustoms(){
-        for(String i:customkeys){
-            if(((people)vertices.get(i)).newownership.size()>0){
-                //System.out.println(i+((people)vertices.get(i)).toString());
-            }
-            else{
-                ArrayList<String> d=((people)vertices.get(i)).getFamily();
-                printarraylist(d);
-                /*
-                for(String j:d){
 
-                    if(((people)vertices.get(j)).newownership.size()>0){
-                        //System.out.println(i+" "+j+((people)vertices.get(i)).toString());
-                        continue;
-                    }
-                }
-
-                 */
-            }
-        }
-    }
-    private void printarraylist(ArrayList<String> arr){
-        for(String k:arr){
-            System.out.println(vertices.get(k).toString());
-        }
-    }
+     */
 
     private void readrelationships(){
         File f=new File("dataSample/relationships.csv");
@@ -305,12 +242,7 @@ public class graph {
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
                 edges.put(data[1] , new relationship(vertices.get(data[0]), vertices.get(data[1]) , data[2] , data[3]));
                 relationshipkeys.add(data[1]);
-                ((people)vertices.get(data[0])).addfamily(data[1]);/*
-                for (int i = 0; i < customkeys.size() ; i++) {
-                    if (data[0].equals(customkeys.get(i)))
-                        relationkeys.add(data[1]);
-                }
-                */
+                ((people)vertices.get(data[0])).addfamily(data[1]);
             }
         }
         catch (FileNotFoundException e){
@@ -318,18 +250,6 @@ public class graph {
         }
     }
 
-    public void addfamily(String ssn1 ,String ssn2){
-        ((people)vertices.get(ssn1)).addfamily(ssn2);
-        ((people)vertices.get(ssn2)).addfamily(ssn1);
-    }
-    public void addacount(String ssn,String accountid){
-        ((people)vertices.get(ssn)).addacountkey(accountid);
-    }
-    public void addtransaction(String transactionid){
-        transaction tr=((transaction)edges.get(transactionid));
-        ((account)tr.from).addfromtransactionkey(tr.transactionid);
-        ((account)tr.to).addtotransactionkey(tr.transactionid);
-    }
     public void newreadtransactions(){
         File f=new File("dataSample/transactions.csv");
         try{
@@ -337,7 +257,6 @@ public class graph {
             scan.nextLine();
             while (scan.hasNextLine()){
                 String data[]=scan.nextLine().replaceAll("\"","").split(",");
-                //System.out.println(data[0]+" "+data[1]+" "+data[2]+" "+data[3]+" "+data[4]);
                 edges.put( data[2] , new transaction( vertices.get(data[0]) , vertices.get(data[1]) , data[2] , data[3] , data[4] ) );
                 ((account)vertices.get(data[0])).addfromtransactionkey(data[2]);
                 ((account)vertices.get(data[1])).addtotransactionkey(data[2]);

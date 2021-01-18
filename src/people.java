@@ -81,19 +81,4 @@ public class people  extends vertex{
                 ", accountkeys number=" + accountkeys.size() +
                 '}';
     }
-
-    /*
-    @Override
-    public String toString() {
-        return "people{" +
-                "firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", ssn='" + ssn + '\'' +
-                ", birthday='" + birthday + '\'' +
-                ", birthplace='" + birthplace + '\'' +
-                ", workplace='" + workplace + '\'' +
-                '}';
-    }
-
- */
 }
