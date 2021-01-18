@@ -295,27 +295,7 @@ public class graph {
             System.out.println(vertices.get(k).toString());
         }
     }
-    /*
-    private void readtransactions(){
-        File f=new File("dataSample/transactions.csv");
-        try{
-            Scanner scan = new Scanner(f);
-            scan.nextLine();
-            while (scan.hasNextLine()){
-                String data[]=scan.nextLine().replaceAll("\"","").split(",");
-                edges.put(data[2] , new transaction(vertices.get(data[0]), vertices.get(data[1]) , data[2] , data[3] , data[4]));
-                transactionkeys.add(data[2]);
-                ((account)vertices.get(data[0])).addfromtransactionkey(data[1]);
-                ((account)vertices.get(data[1])).addtotransactionkey(data[0]);
 
-            }
-        }
-        catch (FileNotFoundException e){
-            e.printStackTrace();
-        }
-    }
-
-     */
     private void readrelationships(){
         File f=new File("dataSample/relationships.csv");
         try{
