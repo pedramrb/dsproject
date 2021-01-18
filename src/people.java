@@ -72,9 +72,28 @@ public class people  extends vertex{
                 "firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", ssn='" + ssn + '\'' +
+                ", birthday=" + birthday +
+                ", birthplace='" + birthplace + '\'' +
+                ", workplace='" + workplace + '\'' +
+                ", accountkeys=" + accountkeys +
+                ", family=" + family +
+                ", newownership=" + newownership +
+                ", accountkeys number=" + accountkeys.size() +
+                '}';
+    }
+
+    /*
+    @Override
+    public String toString() {
+        return "people{" +
+                "firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", ssn='" + ssn + '\'' +
                 ", birthday='" + birthday + '\'' +
                 ", birthplace='" + birthplace + '\'' +
                 ", workplace='" + workplace + '\'' +
                 '}';
     }
+
+ */
 }

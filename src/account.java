@@ -41,6 +41,8 @@ ArrayList<String> totransactionkeys;
                 ", bank_name='" + bank_name + '\'' +
                 ", IBAN='" + IBAN + '\'' +
                 ", account_id='" + account_id + '\'' +
+                ", fromtransactionkeys=" + fromtransactionkeys +
+                ", totransactionkeys=" + totransactionkeys +
                 '}';
     }
 }
