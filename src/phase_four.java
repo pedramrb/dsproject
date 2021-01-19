@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class phase_four {
-    graph g;
+    graph g = new graph();
     HashMap<String,vertex>vertices;
     HashMap<String,edge>edges;
     public phase_four(graph g) {
@@ -21,7 +21,7 @@ public class phase_four {
 
     }
     public boolean hascall(String customkey){
-        //people custom= (people) vertices.get(customkey);
+
         ArrayList<String> callkeys=g.getCallkeys();
         for(String x:callkeys){
             call c= (call) edges.get(x);

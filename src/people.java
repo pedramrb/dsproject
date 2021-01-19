@@ -13,6 +13,7 @@ public class people  extends vertex{
     ArrayList<String> family;
     ArrayList<String> newownership;
     boolean isbadcustom=false;
+
     public people(String firstname,String lastname,String ssn,String birthday,String birthplace,String workplace){
 
         this.firstname=firstname;
@@ -43,6 +44,7 @@ public class people  extends vertex{
         }
         return a;
     }
+
     public void addnewownership(String ownershipid){
         newownership.add(ownershipid);
     }
@@ -58,6 +60,7 @@ public class people  extends vertex{
     public ArrayList<String> getAccountkeys() {
         return accountkeys;
     }
+
     public void addfamily(String peoplessn){
         family.add(peoplessn);
     }
