@@ -3,7 +3,7 @@ public class dsproject {
     public static void main(String[] args) {
         graph g=new graph();
         System.out.println("-------------------------Phase One-------------------------");
-        phase_one phase_one = new phase_one();
+        phase_one phase_one = new phase_one(g);
         System.out.println("-------------------------Phase Two-------------------------");
         phase_two two = new phase_two(g);
         System.out.println("-------------------------Phase Three-------------------------");
